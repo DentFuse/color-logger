@@ -1,5 +1,5 @@
 {
-  "name": "colorlogger",
+  "name": "colorlogger_df",
   "version": "1.0.0",
   "description": "Wrapper For Chalk",
   "main": "index.js",
