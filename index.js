@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const moment = require('moment');
+const supportsColor = require('supports-color');
 
 function log(cmessage){
   console.log(chalk.green("-- " + moment(moment()).format("DD MMM YYYY hh:mm:ss a") + " -- ") + cmessage);
@@ -31,6 +32,21 @@ exports.rgb = function rgb(r,g,b,message){
 
 exports.hex = function hex(hex,message) {
   log(chalk.hex(hex)(message));
+}
+
+exports.check = function check(){
+  if (supportsColor.stdout) {
+	log('Terminal stdout supports color');
+  }
+
+  if (supportsColor.stdout.has256) {
+	log('Terminal stdout supports 256 colors');
+  }
+
+  if (supportsColor.stderr.has16m) {
+	log('Terminal stderr supports 16 million colors (truecolor)');
+  }
+
 }
 // error("Should log current time and print this in red");
 // info("Should log current time and print this in blue");
